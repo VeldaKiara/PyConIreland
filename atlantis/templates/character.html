@@ -1,0 +1,31 @@
+{% comment %} {% load static %}
+<html lang="en">
+<body>
+    {% if characters %}
+        {% for character in characters %}
+            <p>Character: {{ character.name }}</p>
+            <p>Role: {{ character.role }}</p>
+        {% endfor %}
+    {% else %}
+        <p>No characters available.</p>
+    {% endif %}
+</body>
+</html> {% endcomment %}
+
+{% comment %} cached template {% endcomment %}
+{% load static cache %}
+<html lang="en">
+<body>
+    {% cache 600 character_list_cache %}
+        {% if characters %}
+            <ul>
+                {% for character in characters %}
+                    <li>Character: {{ character.name }} - Role: {{ character.role }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No characters available. Please check back later!</p>
+        {% endif %}
+    {% endcache %}
+</body>
+</html>
