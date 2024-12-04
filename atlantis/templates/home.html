@@ -2,13 +2,181 @@
 <!DOCTYPE html>
 <html>
 <body> 
-    <style>
+    {% comment %} <style>
         body {
-            background-image: url("{% static 'img/Velda.png'%}");
+            background-image: url("{% static 'img/mvp.png' %}");
             background-size: cover;
             background-repeat: no-repeat;
+        }
+    </style> {% endcomment %}
+    <style>
+        /* Overall page styling */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
 
+        /* Container with title */
+        .container {
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+            flex-direction: column;
+        }
+
+        /* Title styling */
+        .title {
+            background-color: #7E22CE;
+            font-size: 3.75rem;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            width: 100%;
+            padding: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: absolute;
+            animation: floatHeart 6s ease-in-out infinite;
+            font-size: 2rem;
+            color: #A020F0;
+        }
+
+        .heart:nth-child(odd) {
+            animation-duration: 7s;
+        }
+
+        .heart:nth-child(even) {
+            animation-duration: 8s;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-150px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating stars */
+        .star {
+            position: absolute;
+            font-size: 2rem;
+            color: #FFDF00;
+            animation: twinkle 2s linear infinite;
+        }
+
+        .star:nth-child(odd) {
+            animation-duration: 2.5s;
+            animation-delay: 1s;
+        }
+
+        .star:nth-child(even) {
+            animation-duration: 3s;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.2;
+            }
+        }
+
+        /* Balloon styling */
+        .balloon {
+            position: absolute;
+            animation: floatBalloon 4s ease-in-out infinite;
+            font-size: 2.5rem;
+            color: #FF6347;
+        }
+
+        .balloon:nth-child(odd) {
+            animation-duration: 5s;
+            animation-delay: 1s;
+        }
+
+        .balloon:nth-child(even) {
+            animation-duration: 6s;
+            animation-delay: 2s;
+        }
+
+        @keyframes floatBalloon {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-200px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Button styling */
+        .btn-characters {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #FF6EC7;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-characters:hover {
+            background-color: #FF4785;
         }
     </style>
+    <div class="container">
+
+        <p class="title">Azure Developers - Python Day</p>
+
+        <!-- Button for redirecting to Characters -->
+        <button class="btn-characters" onclick="window.location.href='/atlantis/character/'">Characters</button>
+
+
+        <!-- Floating hearts -->
+        <div class="heart" style="top: 10%; left: 15%;">💜</div>
+        <div class="heart" style="top: 30%; left: 60%;">💜</div>
+        <div class="heart" style="top: 50%; left: 30%;">💜</div>
+        <div class="heart" style="top: 70%; left: 80%;">💜</div>
+
+        <!-- Floating stars -->
+        <div class="star" style="top: 5%; left: 40%;">⭐</div>
+        <div class="star" style="top: 25%; left: 20%;">⭐</div>
+        <div class="star" style="top: 45%; left: 70%;">⭐</div>
+        <div class="star" style="top: 65%; left: 50%;">⭐</div>
+
+        <!-- Floating balloons -->
+        <div class="balloon" style="top: 15%; left: 20%;">🥳</div>
+        <div class="balloon" style="top: 35%; left: 70%;">🥳</div>
+        <div class="balloon" style="top: 55%; left: 50%;">🥳</div>
+        <div class="balloon" style="top: 75%; left: 80%;">🥳</div>
+    </div>
 </body>
 </html>

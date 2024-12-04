@@ -15,17 +15,25 @@
 {% comment %} cached template {% endcomment %}
 {% load static cache %}
 <html lang="en">
-<body>
-    {% cache 600 character_list_cache %}
-        {% if characters %}
-            <ul>
-                {% for character in characters %}
-                    <li>Character: {{ character.name }} - Role: {{ character.role }}</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No characters available. Please check back later!</p>
-        {% endif %}
-    {% endcache %}
-</body>
+    <body style="font-family: 'Georgia', serif; background-color: #0A1C2B; color: #D4AF37; margin: 0; padding: 0; box-sizing: border-box;">
+        <div style="padding: 20px; max-width: 1200px; margin: 0 auto; background: rgba(0, 0, 0, 0.6); border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);">
+            <header style="text-align: center; margin-top: 50px; padding-bottom: 20px; border-bottom: 2px solid #D4AF37;">
+                <h1 style="font-size: 3rem; color: #E3C37B; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); letter-spacing: 2px;">Atlantis: The Lost Empire</h1>
+                <h2 style="font-size: 1.5rem; font-weight: 300; margin-top: 10px; color: #C5B16F;">Character List</h2>
+            </header>
+            
+            {% if characters %}
+                <ul style="list-style-type: none; padding: 0; margin-top: 30px; text-align: center;">
+                    {% for character in characters %}
+                        <li style="background-color: rgba(255, 255, 255, 0.1); margin: 10px auto; padding: 15px; width: 80%; max-width: 600px; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6); font-size: 1.2rem; line-height: 1.5; transition: background-color 0.3s ease-in-out;">
+                            <span style="font-weight: bold; color: #D4AF37;">{{ character.name }}</span> - 
+                            <span style="font-style: italic; color: #A1A1A1;">{{ character.role }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p style="font-size: 1.2rem; color: #FF5733; text-align: center; margin-top: 20px; font-weight: bold;">No characters available. Please check back later!</p>
+            {% endif %}
+        </div>
+    </body>
 </html>
